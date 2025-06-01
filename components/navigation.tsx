@@ -12,8 +12,8 @@ export function Navigation() {
   const navItems = [
     { href: "/", label: "Home", icon: Crown },
     { href: "/leaderboard", label: "Leaderboard", icon: Trophy },
+    {href: "/tournaments", label: "Tounaments", icon: Trophy },
     { href: "/players", label: "Players", icon: Users },
-    { href: "/school", label: "Chess School", icon: GraduationCap },
     { href: "/profile", label: "Profile", icon: User },
   ]
 

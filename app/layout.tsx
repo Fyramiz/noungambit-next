@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   title: "Noungambit Association - Chess Organization Guelmim",
   description:
     "Premier chess organization in Guelmim city, Morocco. Join our community for tournaments, training, and competitive play.",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({

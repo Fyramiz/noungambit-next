@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { Crown, Mail, Phone, MapPin } from "lucide-react"
+import { Crown, Mail, Phone, MapPin, Instagram } from "lucide-react"
+import { Love_Light } from "next/font/google"
 
 export function Footer() {
   return (
@@ -34,12 +35,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/school" className="text-amber-200 hover:text-white transition-colors">
-                  Chess School
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="text-amber-200 hover:text-white transition-colors">
+                <Link href="/" className="text-amber-200 hover:text-white transition-colors">
                   About Us
                 </Link>
               </li>
@@ -62,13 +58,21 @@ export function Footer() {
                 <Mail className="h-4 w-4 text-amber-300" />
                 <span className="text-amber-200 text-sm">info@noungambit.ma</span>
               </li>
+              <li className="flex items-center space-x-2">
+                <Instagram className="h-4 w-4 text-amber-300" />
+                <Link href="https://instagram.com/a.noungambit" className="text-amber-200 hover:text-white transition-colors">
+                  a.noungambit
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-amber-800 mt-8 pt-8 text-center">
           <p className="text-amber-200 text-sm">
-            © {new Date().getFullYear()} Noungambit Association. All rights reserved.
+            Made With Love By <Link href="https://instagram.com/fyramiz" className="text-amber-200 hover:text-white transition-colors">
+                  Fyramiz (Mbark Draoui)
+                </Link> for © {new Date().getFullYear()} Noungambit Association. All rights reserved.
           </p>
         </div>
       </div>

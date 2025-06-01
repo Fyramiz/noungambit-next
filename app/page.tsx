@@ -37,7 +37,7 @@ export default function HomePage() {
             <Card className="text-center border-amber-200">
               <CardHeader>
                 <Users className="h-8 w-8 text-amber-600 mx-auto" />
-                <CardTitle className="text-2xl text-amber-900">150+</CardTitle>
+                <CardTitle className="text-2xl text-amber-900">30+</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">Active Members</p>
@@ -50,24 +50,6 @@ export default function HomePage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">Tournaments Held</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center border-amber-200">
-              <CardHeader>
-                <GraduationCap className="h-8 w-8 text-amber-600 mx-auto" />
-                <CardTitle className="text-2xl text-amber-900">80+</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">Students Trained</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center border-green-200">
-              <CardHeader>
-                <Star className="h-8 w-8 text-green-600 mx-auto" />
-                <CardTitle className="text-2xl text-green-800">12</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">Certified Coaches</p>
               </CardContent>
             </Card>
           </div>
@@ -86,23 +68,11 @@ export default function HomePage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Regular tournaments, ELO rating system, and competitive matches to help you improve your game and
-                  climb the rankings.
+                  Meet and Play with players from Guelmim with your same level
                 </p>
               </CardContent>
             </Card>
-            <Card className="border-green-200 hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <GraduationCap className="h-10 w-10 text-green-600 mb-2" />
-                <CardTitle className="text-green-800">Chess Education</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">
-                  Professional coaching, structured learning programs, and educational resources for players of all
-                  skill levels.
-                </p>
-              </CardContent>
-            </Card>
+            
             <Card className="border-amber-200 hover:shadow-lg transition-shadow">
               <CardHeader>
                 <Users className="h-10 w-10 text-amber-600 mb-2" />
