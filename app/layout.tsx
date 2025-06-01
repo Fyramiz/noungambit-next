@@ -9,7 +9,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Noungambit Association - Chess Organization Guelmim",
+  title: "NounGambit Association - Chess Organization Guelmim",
   description:
     "Premier chess organization in Guelmim city, Morocco. Join our community for tournaments, training, and competitive play.",
 }
