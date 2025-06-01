@@ -22,7 +22,7 @@ export default function LeaderboardPage() {
             <div className="container mx-auto px-4">
                 <div className="mb-8">
                     <h1 className="text-4xl font-bold text-amber-900 mb-2">Tournaments</h1>
-                    <p className="text-gray-600 mt-2">Meet and Play with Tournaments in tournaments</p>
+                    <p className="text-gray-600 mt-2">Meet and Play with People in tournaments</p>
                 </div>
 
                 {/* Full Rankings Table */}
