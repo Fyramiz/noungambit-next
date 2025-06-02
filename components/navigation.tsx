@@ -4,15 +4,16 @@ import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Crown, Menu, Trophy, Users, GraduationCap, User, LogIn } from "lucide-react"
+import { Crown, Menu, ShoppingBag, Trophy, Users, GraduationCap, User, LogIn, Flag, BarChart } from "lucide-react"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
 
   const navItems = [
     { href: "/", label: "Home", icon: Crown },
-    { href: "/leaderboard", label: "Leaderboard", icon: Trophy },
-    {href: "/tournaments", label: "Tournaments", icon: Trophy },
+    { href: "/leaderboard", label: "Leaderboard", icon: BarChart },
+    { href: "/tournaments", label: "Events", icon: Flag },
+    { href: "/merch", label: "Merch", icon: ShoppingBag },
     { href: "/players", label: "Players", icon: Users },
     { href: "/profile", label: "Profile", icon: User },
   ]
