@@ -22,7 +22,7 @@ export function Navigation() {
     <nav className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container flex h-16 items-center justify-between px-4">
         <Link href="/" className="flex items-center space-x-2">
-          <Crown className="h-8 w-8 text-amber-600" />
+          <img src="/noungambit.png" alt="Noungambit Logo" className="h-8 w-8" />
           <span className="text-xl font-bold text-amber-900">Noungambit</span>
         </Link>
 
@@ -44,13 +44,18 @@ export function Navigation() {
         </div>
 
         <div className="hidden md:flex items-center space-x-2">
-          <Button variant="ghost" size="sm">
-            <LogIn className="h-4 w-4 mr-1" />
-            Login
-          </Button>
-          <Button size="sm" className="bg-amber-600 hover:bg-amber-700">
-            Register
-          </Button>
+          <Link href={"/login"}>
+            <Button variant="ghost" size="sm">
+              <LogIn className="h-4 w-4 mr-1" />
+              Login
+            </Button>
+          </Link>
+          <Link href={"/signup"}>
+            <Button size="sm" className="bg-amber-600 hover:bg-amber-700">
+              Register
+            </Button>
+          </Link>
+
         </div>
 
         {/* Mobile Navigation */}
@@ -77,11 +82,16 @@ export function Navigation() {
                 )
               })}
               <div className="pt-4 border-t space-y-2">
-                <Button variant="ghost" className="w-full justify-start">
-                  <LogIn className="h-4 w-4 mr-2" />
-                  Login
-                </Button>
-                <Button className="w-full bg-amber-600 hover:bg-amber-700">Register</Button>
+                <Link href={"/login"}>
+                  <Button variant="ghost" className="w-full justify-start">
+                    <LogIn className="h-4 w-4 mr-2" />
+                    Login
+                  </Button>
+                </Link>
+
+                <Link href={"/signup"}>
+                  <Button className="w-full bg-amber-600 hover:bg-amber-700">Register</Button>
+                </Link>
               </div>
             </div>
           </SheetContent>
