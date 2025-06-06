@@ -55,7 +55,7 @@ export function Navigation() {
     <nav className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container flex h-16 items-center justify-between px-4">
         <Link href="/" className="flex items-center space-x-2" onClick={() => setIsOpen(false)}>
-          <img src="/noungambit.png" alt="Noungambit Logo" className="h-8 w-8" />
+          <img src="/noungambit.png" alt="Noungambit Logo" className="h-10 w-10" />
           <span className="text-xl font-bold text-amber-900">Noungambit</span>
         </Link>
 
@@ -79,12 +79,6 @@ export function Navigation() {
         {/* Desktop Auth Buttons/Message */}
         {session ? (
           <div className="hidden md:flex items-center space-x-2">
-            <Link href="/profile">
-              <Button variant="ghost" size="sm">
-                <User className="h-4 w-4 mr-1" />
-                Profile
-              </Button>
-            </Link>
             <Button variant="ghost" size="sm" onClick={handleLogout}>
               <LogOut className="h-4 w-4 mr-1" />
               Logout
@@ -132,12 +126,6 @@ export function Navigation() {
               <div className="pt-4 border-t space-y-2">
                 {session ? (
                   <>
-                    <Link href="/profile">
-                      <Button variant="ghost" className="w-full justify-start" onClick={() => setIsOpen(false)}>
-                        <User className="h-4 w-4 mr-2" />
-                        Profile
-                      </Button>
-                    </Link>
                     <Button variant="ghost" className="w-full justify-start text-red-600 hover:text-red-700" onClick={handleLogout}>
                       <LogOut className="h-4 w-4 mr-2" />
                       Logout

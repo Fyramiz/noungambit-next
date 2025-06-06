@@ -10,6 +10,7 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "NounGambit Association - Chess Organization Guelmim",
+  
   description:
     "Premier chess organization in Guelmim city, Morocco. Join our community for tournaments, training, and competitive play.",
   authors: [{ name: "Mbark Draoui" }],
