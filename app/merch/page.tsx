@@ -53,7 +53,7 @@ export default function ProfilePage() {
             className="gap-2 bg-green-600 hover:bg-green-700 text-white"
             onClick={() => {
               const message = `Salam, bghit information 3la lktab "${book.title}"`;
-              const whatsappUrl = `https://wa.me/212612345678?text=${encodeURIComponent(message)}`;
+              const whatsappUrl = `https://wa.me/212636390421?text=${encodeURIComponent(message)}`;
               window.open(whatsappUrl, "_blank");
             }}
           >

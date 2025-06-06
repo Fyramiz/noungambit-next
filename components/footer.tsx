@@ -10,8 +10,7 @@ export function Footer() {
           {/* Logo and Description */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <Crown className="h-8 w-8 text-amber-300" />
-              <span className="text-2xl font-bold">Noungambit Association</span>
+              <img src="/noungambit.png" alt="Noungambit Logo" className="w-40" />
             </div>
             <p className="text-amber-100 mb-4">جمعية نون جامبيت للشطرنج - كلميم</p>
             <p className="text-amber-200 text-sm leading-relaxed">
@@ -52,11 +51,7 @@ export function Footer() {
               </li>
               <li className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-amber-300" />
-                <span className="text-amber-200 text-sm">+212 XXX-XXXXXX</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <Mail className="h-4 w-4 text-amber-300" />
-                <span className="text-amber-200 text-sm">info@noungambit.ma</span>
+                <span className="text-amber-200 text-sm">+212 636-390421</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Instagram className="h-4 w-4 text-amber-300" />

@@ -22,7 +22,7 @@ export default function HomePage() {
   useEffect(() => {
     const fetchStats = async () => {
       const { count: members, error: memberError } = await supabase
-        .from("profiles")
+        .from("user_profiles")
         .select("*", { count: "exact", head: true });
 
       const { count: pastEvents, error: eventError } = await supabase
@@ -43,10 +43,11 @@ export default function HomePage() {
       <section className="relative py-20 px-4 text-center">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-center mb-6">
-            <Crown className="h-12 w-12 text-amber-600 mr-3" />
-            <h1 className="text-5xl font-bold text-amber-900">
-              Noungambit Association
-            </h1>
+            <img
+              src="/noungambit.png"
+              alt="the logo of noungambit association"
+              className="w-60"
+            />
           </div>
           <p className="text-xl text-green-700 mb-4">
             جمعية نون جامبيت للشطرنج - كلميم
@@ -71,7 +72,7 @@ export default function HomePage() {
               size="lg"
               className="border-green-600 text-green-600 hover:bg-green-50"
             >
-              <Link href="/register">Join Association</Link>
+              <Link href="/signup">Join Association</Link>
             </Button>
           </div>
         </div>
@@ -119,6 +120,13 @@ export default function HomePage() {
                 <Button
                   variant="secondary"
                   className="text-green-600 hover:underline mt-2"
+                  onClick={() => {
+                    const message = `i rate Noungambit Association ... stars`;
+                    const whatsappUrl = `https://wa.me/212636390421?text=${encodeURIComponent(
+                      message
+                    )}`;
+                    window.open(whatsappUrl, "_blank");
+                  }}
                 >
                   Rate Us
                 </Button>

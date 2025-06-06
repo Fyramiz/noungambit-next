@@ -71,7 +71,7 @@ export default function SignUpWithProfileForm() {
     if (insertError) {
       alert('Profile creation error: ' + insertError.message);
     } else {
-      alert('Signup complete! Please verify your email.');
+      alert('Signup complete! YOu can visit your profile now.');
     }
 
     setLoading(false);
@@ -105,7 +105,6 @@ export default function SignUpWithProfileForm() {
         <option value="Beginner">Beginner</option>
         <option value="Intermediate">Intermediate</option>
         <option value="Advanced">Advanced</option>
-        <option value="Parent">Parent</option>
       </select>
 
       <label className="flex gap-2 items-center">

@@ -55,8 +55,7 @@ export function Navigation() {
     <nav className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container flex h-16 items-center justify-between px-4">
         <Link href="/" className="flex items-center space-x-2" onClick={() => setIsOpen(false)}>
-          <img src="/noungambit.png" alt="Noungambit Logo" className="h-10 w-10" />
-          <span className="text-xl font-bold text-amber-900">Noungambit</span>
+          <img src="/noungambit.png" alt="Noungambit Logo" className="w-20" />
         </Link>
 
         {/* Desktop Navigation */}
