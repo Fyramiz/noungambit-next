@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   title: "NounGambit Association - Chess Organization Guelmim",
   description:
     "Premier chess organization in Guelmim city, Morocco. Join our community for tournaments, training, and competitive play.",
+  authors: [{ name: "Mbark Draoui" }],
+  keywords: [
+    "chess",
+    "Guelmim",
+    "chess tournaments",
+    "chess training",
+    "competitive chess",
+    "NounGambit Association",
+    "Morocco chess",
+    "Guelmim Chess Club"
+  ],
 }
 
 export default function RootLayout({

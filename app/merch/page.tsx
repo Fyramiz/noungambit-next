@@ -1,28 +1,72 @@
-"use client"
+"use client";
 
-import React from "react";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import React, { useEffect, useState } from "react";
+import { createClient } from "@supabase/supabase-js";
+import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Space } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/whatsapp"; // Ensure this path is correct
 
+// ✅ Set up Supabase client
+const supabase = createClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
+
+type Book = {
+        id: number;
+        title: string;
+        description: string;
+        price: number;
+        author: string;
+};
 
 export default function ProfilePage() {
-    return (<div className="flex flex-col items-center justify-center h-screen">
-        <Card>
-                <CardHeader>
-                        <CardTitle>Chess Mastery Book</CardTitle>
-                        <CardDescription>A chess Learning book for Mastering chess</CardDescription>
-                </CardHeader>
-                <CardFooter>
-                        <Label>Made By the GM Mbark Draoui</Label>
-                        
-                        <div className="ml-4"> {/* Added margin-left spacing */}
-                                <Button>
-                                        Buy Now for only 1000$
-                                </Button>
-                        </div>
-                </CardFooter>
-        </Card>
-    </div>)
-    }
+        const [books, setBooks] = useState<Book[]>([]);
+
+        useEffect(() => {
+                const fetchBooks = async () => {
+                        const { data, error } = await supabase.from("merch").select("*");
+                        if (error) {
+                                console.error("Error fetching books:", error.message);
+                        } else {
+                                setBooks(data as Book[]);
+                        }
+                };
+                fetchBooks();
+        }, []);
+
+        return (
+  <div className="flex flex-col items-center justify-center min-h-screen space-y-6 p-4">
+    {books.map((book) => (
+      <Card key={book.id} className="w-full max-w-md">
+        <CardHeader>
+          <CardTitle>{book.title}</CardTitle>
+          <CardDescription>{book.description}</CardDescription>
+        </CardHeader>
+
+        <CardFooter className="flex flex-col items-start gap-2">
+          <Label className="text-sm text-muted-foreground">
+            Made by {book.author}
+          </Label>
+          <Button
+            className="gap-2 bg-green-600 hover:bg-green-700 text-white"
+            onClick={() => {
+              const message = `Salam, bghit information 3la lktab "${book.title}"`;
+              const whatsappUrl = `https://wa.me/212612345678?text=${encodeURIComponent(message)}`;
+              window.open(whatsappUrl, "_blank");
+            }}
+          >
+            <span className="flex items-center">
+              <WhatsAppIcon className="w-5 h-5 text-white" />
+            </span>
+            Buy for {book.price} DH
+          </Button>
+        </CardFooter>
+      </Card>
+    ))}
+  </div>
+);
+
+
+}
