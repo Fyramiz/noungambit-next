@@ -25,6 +25,7 @@ export const metadata: Metadata = {
     "Morocco chess",
     "Guelmim Chess Club"
   ],
+  
 }
 
 export default function RootLayout({
