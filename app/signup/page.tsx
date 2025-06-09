@@ -38,10 +38,11 @@ export default function SignUpWithProfileForm() {
   const [loading, setLoading] = useState(false);
 
   const handleProfileChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value, type, checkVisibility } = e.target;
+    const { name, value, type } = e.target;
+    const checked = (e.target as HTMLInputElement).checked;
     setProfile(prev => ({
       ...prev,
-      [name]: type === 'checkbox' ? checkVisibility : value,
+      [name]: type === 'checkbox' ? checked : value,
     }));
   };
 
@@ -85,7 +86,7 @@ export default function SignUpWithProfileForm() {
       <input type="text" name="name" placeholder="Full Name" value={profile.name} onChange={handleProfileChange} className="w-full p-2 border rounded" />
       <input type="date" name="birth" value={profile.birth} onChange={handleProfileChange} className="w-full p-2 border rounded" />
 
-      <select name="who" value={profile.who} onChange={handleProfileChange} className="w-full p-2 border rounded">
+      <select name="this account is made for Me (Owner) or my Child?" value={profile.who} onChange={handleProfileChange} className="w-full p-2 border rounded">
         <option value="owner">Owner</option>
         <option value="kid">Kid</option>
       </select>
@@ -109,7 +110,7 @@ export default function SignUpWithProfileForm() {
 
       <label className="flex gap-2 items-center">
         <input type="checkbox" name="intrested" checked={profile.intrested} onChange={handleProfileChange} />
-        Interested?
+        Interested in helping the Team behind the Club?
       </label>
 
       <button type="submit" disabled={loading} className="bg-green-500 text-white px-4 py-2 rounded">

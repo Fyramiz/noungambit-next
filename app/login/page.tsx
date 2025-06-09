@@ -11,6 +11,7 @@ import { createClient } from '@/utils/supabase/client';
 // Minimal Card components for usage in login page.
 // Ensure these are correctly imported from your UI library.
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Loader2 } from 'lucide-react';
 
 export default function LoginPage() {
     const router = useRouter();
@@ -34,9 +35,9 @@ export default function LoginPage() {
                 // User is authenticated. Now check their profile completion.
                 try {
                     const { data: profile, error } = await supabase
-                        .from('users') // Your profile table name
+                        .from('user_profiles') // Your profile table name
                         .select('name, birth, who, number, address, education, experience')
-                        .eq('userID', currentSession.user.id)
+                        .eq('userid', currentSession.user.id)
                         .single();
 
                     if (error && error.code === 'PGRST116') {
@@ -48,7 +49,7 @@ export default function LoginPage() {
                         console.error('Error fetching profile:', error.message);
                         // Optional: Display an error message to the user
                         // setIsLoading(false); // Stop loading if error prevents redirection
-                        router.replace('/error?message=Failed to load profile data.');
+                        // router.replace('/error?message=Failed to load profile data.');
                     } else if (profile && (!profile.name || !profile.birth || !profile.who || !profile.number || !profile.address || !profile.education || !profile.experience)) {
                         // Profile exists but is incomplete. Redirect to signup.
                         console.log('Profile exists but incomplete, redirecting to /signup');
@@ -56,7 +57,7 @@ export default function LoginPage() {
                     } else {
                         // Profile exists and is complete. Redirect to dashboard.
                         console.log('Profile complete, redirecting to /dashboard');
-                        router.replace('/dashboard');
+                        router.replace('/profile');
                     }
                 } catch (profileCheckError) {
                     console.error('Unexpected error during profile check:', profileCheckError);
@@ -90,9 +91,7 @@ export default function LoginPage() {
 
     if (isLoading) {
         return (
-            <div className="flex items-center justify-center min-h-screen bg-gray-50">
-                <p className="text-lg text-gray-700">Checking authentication status...</p>
-            </div>
+            <Loader2 className="animate-spin h-6 w-6 text-gray-500" />
         );
     }
 
@@ -104,14 +103,15 @@ export default function LoginPage() {
                     <CardHeader className="text-center">
                         <CardTitle className="text-amber-900 text-2xl font-bold">Welcome!</CardTitle>
                         <CardDescription className="text-md text-gray-600 mt-2">
-                            Sign in or create an account to get started.
+                            Sign in to your account to access Features that require accounts
                         </CardDescription>
                     </CardHeader>
                     <CardContent>
                         <Auth
                             supabaseClient={supabase}
+                            providers={[]} // Add or remove providers as needed
                             appearance={{ theme: ThemeSupa }}
-                            redirectTo={`${window.location.origin}/signup`} // Crucial for redirects after email confirmation/OAuth
+                            showLinks={false}
                             socialLayout="horizontal"
                             localization={{
                                 variables: {
@@ -119,17 +119,9 @@ export default function LoginPage() {
                                         email_label: 'Your Email',
                                         password_label: 'Your Password',
                                         button_label: 'Sign In',
-                                        social_provider_text: 'Continue with {{provider}}',
-                                        link_text: 'Already have an account? Sign In',
+                                        
+                                        
                                     },
-                                    sign_up: {
-                                        email_label: 'Your Email',
-                                        password_label: 'Create Password',
-                                        button_label: 'Sign Up',
-                                        social_provider_text: 'Sign up with {{provider}}',
-                                        link_text: 'Don\'t have an account? Sign Up',
-                                    },
-                                    // Add other localization variables as needed
                                 },
                             }}
                         />

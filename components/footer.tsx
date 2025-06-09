@@ -1,6 +1,8 @@
+"use client"
 import Link from "next/link"
-import { Crown, Mail, Phone, MapPin, Instagram } from "lucide-react"
+import { Crown, Mail, Phone, MapPin, Instagram, Heart } from "lucide-react"
 import { Love_Light } from "next/font/google"
+import { Button } from "./ui/button"
 
 export function Footer() {
   return (
@@ -65,9 +67,20 @@ export function Footer() {
 
         <div className="border-t border-amber-800 mt-8 pt-8 text-center">
           <p className="text-amber-200 text-sm">
-            Made With Love By <Link href="https://instagram.com/fyramiz" className="text-amber-200 hover:text-white transition-colors">
-                  Fyramiz (Mbark Draoui)
-                </Link> for © {new Date().getFullYear()} Noungambit Association. All rights reserved.
+            Made With Love By <Button
+                        className="gap-2 bg-amber-800 text-white"
+                        onClick={() => {
+                          window.open('https://instagram.com/fyramiz')
+                        }}
+                      >
+                        <span className="flex items-center">
+                          <Instagram className="w-5 h-5 text-white" />
+                        </span>
+                        Fyramiz (Mbark Draoui)
+                      </Button> for © {new Date().getFullYear()} Noungambit Association. All rights reserved.
+          </p>
+          <p className="text-amber-200 text-sm mt-2">
+            Want to play a little CTF? <Link href="/WhoAmI" className="text-amber-400 hover:text-white transition-colors">Check Out This</Link>
           </p>
         </div>
       </div>
